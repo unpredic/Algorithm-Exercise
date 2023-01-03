@@ -1,0 +1,5 @@
+快速幂：可以在o(log k)的时间复杂度快速求出a^k mood p
+
+b&1也可以用来判断奇数和偶数,b&1=true时为奇数,反之b&1=false时为偶数
+
+详细讲解：https://liuyangjun.blog.csdn.net/article/details/85621386?utm_medium=distribute.pc_relevant.none-task-blog-OPENSEARCH-1.control&dist_request_id=&depth_1-utm_source=distribute.pc_relevant.none-task-blog-OPENSEARCH-1.control
