@@ -80,3 +80,50 @@ bool cmp(node a, node b) {
 }
 ```
 
+### 给map排序
+
+map按key排序
+
+```
+
+```
+
+map按value排序
+
+C++中如果使用`std::map`或者`std::multimap`可以对key排序，但不能对value排序。所以要把map转化数组即vector，再进行排序，当然vector里面放的也是`pair<int, int>`类型的数据，第一个int为元素，第二个int为出现频率。
+
+题目：[前K个高频单词](https://leetcode.cn/problems/top-k-frequent-words/)
+
+```c++
+// 必须加static
+static bool cmp(const pair<string, int> &a, const pair<string, int> &b) {
+    if (a.second == b.second) return a.first < b.first;
+    else return a.second > b.second;
+}
+vector<string> topKFrequent(vector<string>& words, int k) {
+    map<string, int> m;
+    vector<string> res;
+    for (auto word : words) {
+        m[word] ++ ;
+    }
+    vector<pair<string, int>> vec(m.begin(), m.end());
+    sort(vec.begin(), vec.end(), cmp);
+    for (int i = 0; i < k; i ++ ) {
+        res.push_back(vec[i].first);
+    }
+    return res;
+}
+```
+
+### 给pair排序
+
+pair 默认对first升序，当first相同时对second升序
+
+```c++
+bool cmp(pair<int, int>a, pair<int, int>b)
+{
+    return a.first<b.first;//根据fisrt的值升序排序
+    //return a.second<b.second;//根据second的值升序排序
+}
+```
+
